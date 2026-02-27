@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=3 uid="uid://gmy6qrtyb5wy"]
+
+[ext_resource type="Texture2D" uid="uid://bmkkbynqvos0t" path="res://assets/arboles/bosque_2_forrest_ground_01_diff_2k.jpg" id="1_pc087"]
+[ext_resource type="Texture2D" uid="uid://gfav1j11xumy" path="res://assets/arboles/bosque_2_forrest_ground_01_rough_2k.png" id="2_apkv3"]
+[ext_resource type="Texture2D" uid="uid://3fpj2kv5f5hu" path="res://assets/arboles/bosque_2_forrest_ground_01_nor_2k.jpg" id="3_omrgh"]
+[ext_resource type="PackedScene" uid="uid://cphg2c2a8ciyp" path="res://scenes/door.tscn" id="4_ncsg4"]
+[ext_resource type="PackedScene" uid="uid://cjjvvoo4a7bum" path="res://scenes/RootMotionPlayerMe.tscn" id="5_07nfq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyew2"]
+resource_name = "Ground"
+cull_mode = 2
+albedo_texture = ExtResource("1_pc087")
+metallic_texture = ExtResource("2_apkv3")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_apkv3")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_omrgh")
+uv1_scale = Vector3(10, 10, 1)
+uv1_offset = Vector3(0, -9, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v5qbr"]
+_surfaces = [{
+"aabb": AABB(-3.2131746, -1.0809477e-08, -23.213175, 46.426346, 1e-05, 46.42635),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "Ground",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ho88x"]
+resource_name = "bosque_2_Plane_004"
+_surfaces = [{
+"aabb": AABB(-3.2131746, -1.0809477e-08, -23.213175, 46.426346, 1e-05, 46.42635),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_kyew2"),
+"name": "Ground",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_v5qbr")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oipnb"]
+size = Vector3(46.422012, 0.064575195, 126.62433)
+
+[node name="lobby" type="Node3D"]
+
+[node name="piso" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.644427, 0)
+
+[node name="bosque_2" type="Node3D" parent="piso"]
+
+[node name="Forest E" type="MeshInstance3D" parent="piso/bosque_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.7324636, -11.529361, 2.8504167, -63.940235)
+mesh = SubResource("ArrayMesh_ho88x")
+skeleton = NodePath("")
+
+[node name="Forest E2" type="MeshInstance3D" parent="piso/bosque_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.7324636, -57.305138, 2.8504167, -63.940235)
+mesh = SubResource("ArrayMesh_ho88x")
+skeleton = NodePath("")
+
+[node name="Forest E3" type="MeshInstance3D" parent="piso/bosque_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.7324636, -57.305138, 2.8504167, 62.53159)
+mesh = SubResource("ArrayMesh_ho88x")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="piso"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.469673, 2.8289497, -62.99425)
+shape = SubResource("BoxShape3D_oipnb")
+
+[node name="piso2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.644427, 125.83754)
+
+[node name="bosque_2" type="Node3D" parent="piso2"]
+
+[node name="Forest E" type="MeshInstance3D" parent="piso2/bosque_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.7324636, -11.529361, 2.8504167, -63.095505)
+mesh = SubResource("ArrayMesh_ho88x")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="piso2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.469673, 2.8289497, -62.99425)
+shape = SubResource("BoxShape3D_oipnb")
+
+[node name="piso3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.51396, -2.644427, 125.83754)
+
+[node name="bosque_2" type="Node3D" parent="piso3"]
+
+[node name="Forest E" type="MeshInstance3D" parent="piso3/bosque_2"]
+transform = Transform3D(1, -7.2209135e-05, -3.3095792e-05, 7.2209135e-05, 1, -0.00020457679, 1.2112071e-05, 7.486899e-05, 2.7324636, -11.529362, 2.8504167, -63.095505)
+mesh = SubResource("ArrayMesh_ho88x")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="piso3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.469673, 2.8289497, -62.99425)
+shape = SubResource("BoxShape3D_oipnb")
+
+[node name="piso4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.51396, -2.644427, -1.0155029)
+
+[node name="bosque_2" type="Node3D" parent="piso4"]
+
+[node name="Forest E" type="MeshInstance3D" parent="piso4/bosque_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.7324636, -11.529361, 2.8504167, -63.095505)
+mesh = SubResource("ArrayMesh_ho88x")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="piso4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.469673, 2.8289497, -62.99425)
+shape = SubResource("BoxShape3D_oipnb")
+
+[node name="door" parent="." instance=ExtResource("4_ncsg4")]
+transform = Transform3D(-0.25563583, 0, -2.4868958, 0, 2.5, 0, 2.4868958, 0, -0.25563583, 32.49376, 0.21106124, 1.6543427)
+
+[node name="RootMotionPlayer" parent="." instance=ExtResource("5_07nfq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.153069, 0.2215319, 0.9906883)

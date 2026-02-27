@@ -1,0 +1,146 @@
+[gd_scene load_steps=13 format=3 uid="uid://dfx6kddqyhaei"]
+
+[ext_resource type="PackedScene" uid="uid://bd81gr5l153fn" path="res://scenes/Pomberito.tscn" id="2_bn3w3"]
+[ext_resource type="PackedScene" uid="uid://bytg1m76aktcm" path="res://assets/arboles/Low_poly_tree_1.glb" id="3_e0tb3"]
+[ext_resource type="Texture2D" uid="uid://bwjaivkqwy136" path="res://assets/arboles/bosque_forrest_ground_01_diff_2k.jpg" id="4_87qcp"]
+[ext_resource type="Texture2D" uid="uid://devvbqr1oajo4" path="res://assets/arboles/bosque_forrest_ground_01_rough_2k.png" id="5_mstoo"]
+[ext_resource type="Texture2D" uid="uid://8vhpjyd2qd5k" path="res://assets/arboles/bosque_forrest_ground_01_nor_2k.jpg" id="6_bpq2i"]
+[ext_resource type="PackedScene" uid="uid://cjjvvoo4a7bum" path="res://scenes/RootMotionPlayerMe.tscn" id="6_e0tb3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bn3w3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wjfk0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ialq3"]
+resource_name = "Ground"
+cull_mode = 2
+albedo_texture = ExtResource("4_87qcp")
+metallic_texture = ExtResource("5_mstoo")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("5_mstoo")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("6_bpq2i")
+uv1_scale = Vector3(10, 10, 1)
+uv1_offset = Vector3(0, -9, 0)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ayeag"]
+_surfaces = [{
+"aabb": AABB(-3.2131746, -1.0809477e-08, -23.213175, 46.426346, 1e-05, 46.42635),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"name": "Ground",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c3tkg"]
+resource_name = "bosque_Plane_004"
+_surfaces = [{
+"aabb": AABB(-3.2131746, -1.0809477e-08, -23.213175, 46.426346, 1e-05, 46.42635),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_ialq3"),
+"name": "Ground",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ayeag")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e0tb3"]
+size = Vector3(11.706772, 0.001, 265.15796)
+
+[node name="Mundo" type="Node3D"]
+
+[node name="piso" type="MeshInstance3D" parent="."]
+transform = Transform3D(80, 0, 0, 0, 1, 0, 0, 0, 80, 0, -0.48858535, 0)
+mesh = SubResource("BoxMesh_bn3w3")
+
+[node name="Area3D" type="Area3D" parent="piso"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="piso/Area3D"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+shape = SubResource("BoxShape3D_wjfk0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.6202447, 0.78440845, 0, -0.78440845, 0.6202447, 0, 147.08847, 58.81194)
+light_color = Color(0.6025442, 0.6025442, 0.6025442, 1)
+
+[node name="Pomberito" parent="." instance=ExtResource("2_bn3w3")]
+transform = Transform3D(0.049146377, 0, -0.6982726, 0, 0.7, 0, 0.6982726, 0, 0.049146377, -68.00394, 0, 0)
+
+[node name="Low_poly_tree_1" parent="." instance=ExtResource("3_e0tb3")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -82.60223, -28.663532, 330.76)
+
+[node name="bodque_2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5251422, 0, -1.8987408, 69.08768)
+
+[node name="Forest E" type="MeshInstance3D" parent="bodque_2"]
+transform = Transform3D(0.0013995655, 0, 2.515544, 0, 1, 0, -5.728425, 0, 0.00061459624, -15.04129, 1.9428048, -12.594864)
+mesh = SubResource("ArrayMesh_c3tkg")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="bodque_2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bodque_2/Area3D"]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 1, -15.25853, 1.7946651, -126.719696)
+shape = SubResource("BoxShape3D_e0tb3")
+
+[node name="bodque_3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5251422, 0, -1.8987408, -68.82811)
+
+[node name="Forest E" type="MeshInstance3D" parent="bodque_3"]
+transform = Transform3D(0.0013995655, 0, 2.515544, 0, 1, 0, -5.728425, 0, 0.00061459624, -15.04129, 1.9428048, -12.594864)
+mesh = SubResource("ArrayMesh_c3tkg")
+skeleton = NodePath("")
+
+[node name="bodque_4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.5251422, -114.88243, -1.8987408, 69.08768)
+
+[node name="Forest E" type="MeshInstance3D" parent="bodque_4"]
+transform = Transform3D(0.0013995655, 0, 2.515544, 0, 1, 0, -5.728425, 0, 0.00061459624, -15.04129, 1.9428048, -12.594864)
+mesh = SubResource("ArrayMesh_c3tkg")
+skeleton = NodePath("")
+
+[node name="bodque_4" type="Node3D" parent="bodque_4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.52514225, -114.88243, -1.8987408, 63.54503)
+
+[node name="Forest E" type="MeshInstance3D" parent="bodque_4/bodque_4"]
+transform = Transform3D(0.0013995655, 0, 2.515544, 0, 1, 0, -5.728425, 0, 0.00061459624, 104.86917, 1.9428048, -639.71484)
+mesh = SubResource("ArrayMesh_c3tkg")
+skeleton = NodePath("")
+
+[node name="Forest E" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0013995655, 0, 2.515544, 0, 1, 0, -5.728425, 0, 0.00061459624, 92.76938, -0.54981375, 57.78784)
+mesh = SubResource("ArrayMesh_c3tkg")
+skeleton = NodePath("")
+
+[node name="Forest E2" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.722938, 0, 0.11007732, 0, 1, 0, -0.25066933, 0, 2.5131345, -170.4957, -0.4459095, 128.10718)
+mesh = SubResource("ArrayMesh_c3tkg")
+skeleton = NodePath("")
+
+[node name="Forest E3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0013995655, 0, 2.515544, 0, 1, 0, -5.728425, 0, 0.00061459624, 125.68283, -0.04924345, 186.8302)
+mesh = SubResource("ArrayMesh_c3tkg")
+skeleton = NodePath("")
+
+[node name="Low_poly_tree_2" parent="." instance=ExtResource("3_e0tb3")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -432.20435, -28.663532, 564.72485)
+
+[node name="Low_poly_tree_3" parent="." instance=ExtResource("3_e0tb3")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -82.60223, -28.663532, 967.5065)
+
+[node name="Low_poly_tree_4" parent="." instance=ExtResource("3_e0tb3")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 189.8634, -28.663532, 564.4867)
+
+[node name="RootMotionPlayer" parent="." instance=ExtResource("6_e0tb3")]

@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfx6kddqyhaei"]
+
+[ext_resource type="PackedScene" uid="uid://bd81gr5l153fn" path="res://scenes/Pomberito.tscn" id="2_bn3w3"]
+[ext_resource type="PackedScene" uid="uid://bytg1m76aktcm" path="res://assets/arboles/Low_poly_tree_1.glb" id="3_e0tb3"]
+[ext_resource type="PackedScene" uid="uid://btpllojhd75n" path="res://scenes/piso_pasto.tscn" id="6_87qcp"]
+[ext_resource type="PackedScene" uid="uid://cjjvvoo4a7bum" path="res://scenes/RootMotionPlayerMe.tscn" id="6_e0tb3"]
+[ext_resource type="PackedScene" uid="uid://b685ua7u8y77k" path="res://scenes/pause_menu.tscn" id="7_87qcp"]
+[ext_resource type="PackedScene" uid="uid://p87lpbmr7m5m" path="res://scenes/dead_menu.tscn" id="8_mstoo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e0tb3"]
+size = Vector3(561.33276, 0.001, 0.001)
+
+[node name="Mundo" type="Node3D"]
+
+[node name="Pomberito" parent="." instance=ExtResource("2_bn3w3")]
+transform = Transform3D(0.035104554, 0, -0.49876615, 0, 0.5, 0, 0.49876615, 0, 0.035104554, -18.538143, 0.2251215, 0.2025547)
+
+[node name="RootMotionPlayer" parent="." instance=ExtResource("6_e0tb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4072914, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.6202447, 0.78440845, 0, -0.78440845, 0.6202447, 0, 147.08847, 58.81194)
+light_color = Color(0.42051837, 0.51121414, 0.5813897, 1)
+
+[node name="Low_poly_tree_1" parent="." instance=ExtResource("3_e0tb3")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -82.60223, -28.663532, 330.76)
+
+[node name="Low_poly_tree_2" parent="." instance=ExtResource("3_e0tb3")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -432.20435, -28.663532, 564.72485)
+
+[node name="Low_poly_tree_3" parent="." instance=ExtResource("3_e0tb3")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -82.60223, -28.663532, 967.5065)
+
+[node name="Low_poly_tree_4" parent="." instance=ExtResource("3_e0tb3")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 189.8634, -28.663532, 564.4867)
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_87qcp")]
+visible = false
+
+[node name="deadMenu" parent="." instance=ExtResource("8_mstoo")]
+visible = false
+
+[node name="piso" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.681156, 0, 123.179)
+
+[node name="piso2" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.681156, 0, 256.6766)
+
+[node name="piso3" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -117.64308, 0, 123.179)
+
+[node name="piso4" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -109.06256, 0, 261.07388)
+
+[node name="piso5" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.35184, 0, 123.179)
+
+[node name="piso6" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.91664, 0, 255.72614)
+
+[node name="piso7" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.91664, 0, 378.3226)
+
+[node name="piso10" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.90123, 0, 378.3226)
+
+[node name="piso11" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.90123, 0, 242.97641)
+
+[node name="piso12" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.90123, 0, 121.20206)
+
+[node name="piso13" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.90123, 0, 3.0477905)
+
+[node name="piso14" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.245255, 0, 3.0477905)
+
+[node name="piso15" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8744965, 0, 3.0477905)
+
+[node name="piso16" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.523056, 0, 3.0477905)
+
+[node name="piso17" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.35626, 0, 3.0477905)
+
+[node name="piso19" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.35626, 0, 241.62003)
+
+[node name="piso18" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -226.00743, 0, 108.94055)
+
+[node name="piso8" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.081497, 0, 378.3226)
+
+[node name="piso9" parent="." instance=ExtResource("6_87qcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.36781, 0, 378.3226)
+
+[node name="pared" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 369.8224, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pared"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.383179, -0.4995, -195.97313)
+shape = SubResource("BoxShape3D_e0tb3")
